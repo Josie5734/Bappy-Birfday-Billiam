@@ -1,0 +1,18 @@
+{
+    "manifest_version": 2,
+    "name": "Bappy Birfday Billiam",
+    "version": "0.5",
+
+    "description": "replaces the first letter of every word with the letter B",
+
+    "icons": {
+        "48": "logo.png"
+    },
+
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["billiam.js"]
+        }
+    ]
+}
