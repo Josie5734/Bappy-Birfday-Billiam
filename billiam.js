@@ -3,12 +3,14 @@
         add a toggle switch in the top right to turn it on/off
 */
 
+document.getElementById("billiam-activate").addEventListener("click",Billiam())
 
-//main program
-
-let element = document.querySelectorAll("p, h1, h2, h3"); //get all elements to change 
-for (var i = element.length; i--;) { //for each element
-    element[i].textContent = FindandReplace(element[i].textContent) //replace the words
+//main program function
+function Billiam() {
+    let element = document.querySelectorAll("p, h1, h2, h3"); //get all elements to change 
+    for (var i = element.length; i--;) { //for each element
+        element[i].textContent = FindandReplace(element[i].textContent) //replace the words
+    }
 }
 
 //<span> and <a> could also be included but seem to break if they are represented by img rather than text, not sure how to exclude them if they are just an img 
