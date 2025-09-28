@@ -3,11 +3,11 @@
         add a toggle switch in the top right to turn it on/off
 */
 
-document.getElementById("billiam-activate").addEventListener("click",Billiam())
+Billiam();
 
 //main program function
 function Billiam() {
-    let element = document.querySelectorAll("p, h1, h2, h3"); //get all elements to change 
+    let element = document.querySelectorAll("p, h1, h2, h3, span"); //get all elements to change 
     for (var i = element.length; i--;) { //for each element
         element[i].textContent = FindandReplace(element[i].textContent) //replace the words
     }
@@ -24,7 +24,7 @@ function FindandReplace(input) {
 
     for (let word of str) { //loop through each word in the string
 
-        if (isNaN(word)) { //if word is not a number
+        if (isNaN(word)) { //if word is not a number    - replace with ascii check
 
             if (["a","e","i","o","u"].includes(word[0].toLowerCase())) { //if the first letter is a vowel
 

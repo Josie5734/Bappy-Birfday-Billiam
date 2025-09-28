@@ -1,5 +1,5 @@
 html,body {
-    width: 100px;;
+    width: 200px;;
 }
 
 button {
@@ -14,4 +14,9 @@ button {
 
 button:hover {
     background-color: #cff2f2;
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
 }
