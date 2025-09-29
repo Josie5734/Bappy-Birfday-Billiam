@@ -3,17 +3,30 @@
         add a toggle switch in the top right to turn it on/off
 */
 
-Billiam();
+
+browser.storage.onChanged.addListener((changes, area) => {
+    if (area === "local" && "value" in changes) {
+        update(changes.value.newValue);
+    }
+});
+
+function update() {
+    Billiam();
+}
+
+browser.storage.local.get("value").then(result => update(result.value));
+
+
 
 //main program function
 function Billiam() {
-    let element = document.querySelectorAll("p, h1, h2, h3, span"); //get all elements to change 
+    let element = document.querySelectorAll("p, h1, h2, h3"); //get all elements to change 
     for (var i = element.length; i--;) { //for each element
         element[i].textContent = FindandReplace(element[i].textContent) //replace the words
     }
 }
 
-//<span> and <a> could also be included but seem to break if they are represented by img rather than text, not sure how to exclude them if they are just an img 
+//<span> and <a> could also be included but seem to break if they are represented by img rather than text (and in other situations for span), not sure how to exclude them if they are just an img 
 
 //function that takes a string and replaces all the first letters with B, returns the new string
 function FindandReplace(input) {
